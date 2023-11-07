@@ -5,6 +5,7 @@ const currencyTwo = document.querySelector('#currency-two');
 const money = document.querySelector('.amount-one');
 const moneyConv = document.querySelector('.amount-two');
 const swapBtn = document.querySelector('.swap');
+const rateInfo = document.querySelector('.rate-info');
 
 const API_LINK = 'https://v6.exchangerate-api.com/v6';
 const API_KEY = '/e35b6329ed6081fb619db5c3';
@@ -20,6 +21,7 @@ const getCurrencyRate = () => {
     const convRate = res.data.conversion_rate;
     const convResult = Math.round(res.data.conversion_result * 100) / 100;
     moneyConv.value = convResult;
+    rateInfo.textContent = `1 ${currencyOne.value} = ${convRate} ${currencyTwo.value}`
   })
 }
 
